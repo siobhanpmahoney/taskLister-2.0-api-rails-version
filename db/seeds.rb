@@ -12,6 +12,8 @@
   u.update(password: u.username, password_confirmation: u.username)
 end
 
+siobhan = User.create(username: "siobhan", password: "siobhan", password_confirmation: "siobhan")
+
 15.times do
   t = Task.find_or_create_by(title: Faker::Hacker.say_something_smart)
   options = ["new", "in progress", "under review", "closed"]

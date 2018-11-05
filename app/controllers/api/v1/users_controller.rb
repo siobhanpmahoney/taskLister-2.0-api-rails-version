@@ -24,8 +24,9 @@ class Api::V1::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    user_info = {user: @user, tasks: @user.user_tasks}
-    render json: user_info
+
+    # user_info = {user: @user, tasks: @user.user_tasks}
+    render json: @user
   end
 
   private

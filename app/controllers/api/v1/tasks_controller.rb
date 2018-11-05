@@ -2,8 +2,8 @@ class Api::V1::TasksController < ApplicationController
 
   def index
     @tasks = Task.all
-    all_task_info = @tasks.map { |t| t.task_info }
-    render json: all_task_info
+    # all_task_info = @tasks.map { |t| t.task_info }
+    render json: @tasks
   end
 
   def create
@@ -19,7 +19,7 @@ class Api::V1::TasksController < ApplicationController
   def show
     @task = Task.find(params[:id])
     task_info = @task.task_info
-    render json: task_info
+    render json: @task
   end
 
   def update
@@ -31,7 +31,7 @@ class Api::V1::TasksController < ApplicationController
     @task.find_save_update_users(params[:rel_users])
     task_info = @task.task_info
     puts task_info
-    render json: task_info
+    render json: @task
   end
 
   def destroy
